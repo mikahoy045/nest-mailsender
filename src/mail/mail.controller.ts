@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res } from '@nestjs/common';
+import { Controller, Post, Body, Res, Get } from '@nestjs/common';
 import { MailService } from './mail.service';
 import { Response } from 'express';
 
@@ -15,5 +15,10 @@ export class MailController {
         } catch (error) {
             res.status(500).json({ message: 'Failed to send email', error: error.message });
         }
+    }
+
+    @Get('/mikah')
+    testControllerMethod() {
+        return { message: "This is just a test endpoint." };
     }
 }
